@@ -19,4 +19,8 @@ chk_hourly_pay check(hourly_pay>=10.00);
 
 alter table employees
 drop check chk_hourly_pay;
+
+alter table transactions
+add constraints
+primary key (transaction_id)
 */
