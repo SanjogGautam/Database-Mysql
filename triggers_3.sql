@@ -4,7 +4,10 @@
 -- for each row
 -- set new.salary=(new.hourly_pay*8*30);
 -- updating after cost table to each change in salaries of employee table
--- create trigger total_salary
--- before update on cost
--- for each row
--- set new.expenses=
+
+create trigger total_salary
+before update on employees
+for each row
+update cost
+set expense_total=(select sum(new.salary) from employees)
+where expenses_name="salary";
